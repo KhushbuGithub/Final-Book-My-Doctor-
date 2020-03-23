@@ -1,0 +1,16 @@
+
+.container-fluid{
+    height: 100%;
+    align-content: center;
+    
+}
+.img{
+    background: url('https://www.jakpost.travel/wimages/large/40-407077_plain-colour-wallpaper-light-plain-color-backgrounds.jpg');
+    background-size: cover;
+    align-self: initial;
+    background-image: url('https://www.harrowhealthcare.co.uk/wp-content/uploads/2019/07/Harrow-Health-Care.png');
+    background-repeat: no-repeat;
+}
+.footer{
+    align-content: space-around;
+}
