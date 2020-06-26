@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BookMyDocService } from '../book-my-doc.service';
 import { Router } from '@angular/router';
 import { NgbRatingConfig } from '@ng-bootstrap/ng-bootstrap';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-search',
@@ -13,7 +14,9 @@ export class SearchComponent implements OnInit {
   valueSearch;
   doctors;
   rating= 4;
-  constructor(private bookMyDoc: BookMyDocService,
+  
+  constructor(private httpClient: HttpClient,
+              private bookMyDoc: BookMyDocService,
               private router: Router,
               config: NgbRatingConfig) {
                 config.max = 5;
@@ -22,6 +25,12 @@ export class SearchComponent implements OnInit {
   }
 
   ngOnInit() {
+    // this.httpClient.getSearch().subscribe(
+    //   response => this.handleSuccessfulResponse(response),
+    // );
+  }
+  handleSuccessfulResponse(response) {
+    this.valueSearch = response;
   }
   getDoctor() {
       console.log(this.bookMyDoc.valueOfSearchCity);

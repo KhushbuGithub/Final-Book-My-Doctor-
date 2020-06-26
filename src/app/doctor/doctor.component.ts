@@ -26,8 +26,8 @@ export class DoctorComponent implements OnInit {
     this.router.navigateByUrl('/appointment');
   }
   getDoctor() {
-    console.log(this.bookMyDoc.patientsId);
-    this.bookMyDoc.getDoctor(this.bookMyDoc.patientsId).subscribe(response => {
+    console.log(this.bookMyDoc.doctorsId);
+    this.bookMyDoc.getDoctor(this.bookMyDoc.doctorsId).subscribe(response => {
       console.log(response);
       this.bookMyDoc.doctorName = response.bean[0].doctorName;
       this.doctors = response.bean;

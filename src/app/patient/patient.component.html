@@ -16,12 +16,12 @@
                                 <th>Language</th>
                                 <th>Location</th>
                                 <th>Phone.No</th>
-                                <th>Update Details</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr *ngFor='let patient of patients'>
-                                <td>{{patient.patientId}}</td>
+                                <td>{{patient.userId}}</td>
                                 <td>{{patient.patientName}}</td>
                                 <td>{{patient.age}}</td>
                                 <td>{{patient.email}}</td>
@@ -29,7 +29,7 @@
                                 <td>{{patient.language}}</td>
                                 <td>{{patient.location}}</td>
                                 <td>{{patient.mobileNumber}}</td>
-                                <td><button class="btn btn-primary" (click)='updatePatient(patient)'>Update</button>
+                                <td><button class="btn btn-primary" (click)='updatePatient(patient)'>Next</button>
                                 </td>
                             </tr>
                         </tbody>

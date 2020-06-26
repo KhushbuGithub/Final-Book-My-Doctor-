@@ -17,6 +17,10 @@ export class PatientdetailsComponent implements OnInit {
       this.viewAllPatients();
      }
 
+     ngOnInit() {
+    }
+  
+
     deletePatient(patient) {
       this.patientDetails.deletePatient(patient).subscribe(data => {
         console.log(data);
@@ -45,7 +49,6 @@ export class PatientdetailsComponent implements OnInit {
       });
     }
 
-  ngOnInit() {
-  }
+  
 
 }

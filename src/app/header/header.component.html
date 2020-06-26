@@ -13,22 +13,22 @@
                     <li class="nav-item"> <a routerLink="login" class="nav-link text-uppercase font-weight-bold"> <i class="fas fa-key"></i>Login</a> </li>
                 </ul>
                 <ul class="navbar-nav ml-auto" *ngIf='isLoggedIn()'>
-                        <li class="nav-item"> <button (click)='logout()' class="btn btn-outline-danger">logout</button> </li>
+                        <li class="nav-item"> <button (click)='logout()' class="btn btn-outline-danger">Logout</button> </li>
                     </ul>
             </div>
             <ul class="navbar-nav" *ngIf='isDoctor()'>
                     <li class="nav-item"><a routerLink="doctor" class="nav-link text-uppercase font-weight-bold">My Profile</a> </li>
                 </ul>
                 <ul class="navbar-nav" *ngIf='isPatient()'>
-                        <li class="nav-item"><a routerLink="add-patient" class="nav-link text-uppercase font-weight-bold">Add Details</a> </li>
+                        <li class="nav-item"><a routerLink="add-patient" class="nav-link text-uppercase font-weight-bold">Update Details</a> </li>
                         <li class="nav-item"><a routerLink="patient" class="nav-link text-uppercase font-weight-bold">My Profile</a> </li>
+                        <li class="nav-item"><a routerLink="add-appointment" class="nav-link text-uppercase font-weight-bold">Add Appointment</a> </li>
                     </ul>
             <div id="navbarSupportedContent" class="collapse navbar-collapse">
                 <ul class="navbar-nav ml-auto" *ngIf='isPatient() || isDoctor() || !isAdmin()'>
                     <li class="nav-item active text-success"><a routerLink="" class="nav-link text-uppercase font-weight-bold"> <i class="fa fa-home" aria-hidden="true"></i>Home<span class="sr-only">(current)</span></a></li>
                     <li class="nav-item"><a routerLink="about" class="nav-link text-uppercase font-weight-bold"> <i class="fa fa-user" aria-hidden="true"></i> About</a></li>
                     <li class="nav-item"><a routerLink="footer" class="nav-link text-uppercase font-weight-bold"> <i class="fas fa-user" aria-hidden="true"></i> Contact</a></li>
-                    <li class="nav-item"><a routerLink="faq" class="nav-link text-uppercase font-weight-bold"> FAQ</a></li>
                 </ul>
             </div>
         </div>

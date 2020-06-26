@@ -10,11 +10,13 @@ import { NgForm } from '@angular/forms';
 
 
 export class BookMyDocService {
+  userId(userId: any) {
+    throw new Error("Method not implemented.");
+  }
 
   valueOfPatientDetails;
   valueOfAppointmentDetails;
   valueOfSearchCity;
-  valueOfSearchSpecialization;
   valueOfDoctorDetais;
   doctorName;
   doctorEmail;
@@ -22,38 +24,54 @@ export class BookMyDocService {
   patientsName;
   patientsId;
   patientsEmail;
-  api = `http://localhost:8080`;
+  api = `http://localhost:8080/template`;
+  appointmentId;
 
   constructor(private http: HttpClient) { }
   getDataCity(search) {
-    return this.http.get<any>(`${this.api}/search-doctorCity/${search}`);
+    return this.http.get<any>(`${this.api}/search-doctorCity/${search}`,{
+      withCredentials:true
+    });
   }
-  // getDataSpecialization(search): Observable<any> {
-  //   return this.http.get<any>(`${this.api}/search-doctorCity/${search}`);
-  // }
   postRegistration(request): Observable<any> {
-    return this.http.post<any>(`${this.api}/register-user`, request);
+    return this.http.post<any>(`${this.api}/register-user`, request,{
+      withCredentials:true
+    }); 
   }
   loginUser(userCredentials): Observable<any> {
-    return this.http.post<any>(`${this.api}/auth`, userCredentials);
+    return this.http.post<any>(`${this.api}/login`, userCredentials,{
+      withCredentials:true
+    });
   }
-  addPatient(request): Observable<any> {
-    return this.http.post<any>(`${this.api}/add-patient`, request);
+  addPatient(user): Observable<any> {
+    return this.http.post<any>(`${this.api}/add-patient/${this.patientsId}`, user,{
+      withCredentials:true
+    });
   }
-  addDoctor(request): Observable<any> {
-    return this.http.post<any>(`${this.api}/add-doctor`, request);
+  addDoctor(user): Observable<any> {
+    return this.http.post<any>(`${this.api}/add-doctor/${this.doctorsId}`, user,{
+      withCredentials:true
+    });
   }
   addAppointment(request): Observable<any> {
-    return this.http.post<any>(`${this.api}/add-appiontment`, request);
+    return this.http.post<any>(`${this.api}/add-appiontment`, request,{
+      withCredentials:true
+    });
   }
   getPatient(search): Observable<any> {
-    return this.http.get<any>(`${this.api}/view-patient/${search}`);
+    return this.http.get<any>(`${this.api}/view-patient/${search}`,{
+      withCredentials:true
+    });
   }
   getAppointment(patient): Observable<any> {
-    return this.http.get<any>(`${this.api}/get-appiontment/${patient}`);
+    return this.http.get<any>(`${this.api}/get-appiontment/${this.patientsId}`,{
+      withCredentials:true
+    });
   }
   addRating(request): Observable<any> {
-    return this.http.post<any>(`${this.api}/add-ratingandreview`, request);
+    return this.http.post<any>(`${this.api}/add-ratingandreview`, request,{
+      withCredentials:true
+    });
   }
   getDoctor(search): Observable<any> {
     return this.http.get<any>(`${this.api}/view-doctor/${search}`, {
@@ -66,7 +84,9 @@ export class BookMyDocService {
      } );
   }
   updateApprove(request): Observable<any> {
-    return this.http.put<any>(`${this.api}/modify-Appiontment`, request);
+    return this.http.put<any>(`${this.api}/modify-Appiontment`, request,{
+      withCredentials:true
+    });
   }
   getRatingByName(doctor): Observable<any> {
     return this.http.get<any>(`${this.api}/get-ratingbyname/${doctor}`,{
@@ -74,7 +94,9 @@ export class BookMyDocService {
     });
   }
   updatePatient(request): Observable<any> {
-    return this.http.put<any>(`${this.api}/modify-Patient`, request);
+    return this.http.put<any>(`${this.api}/modify-Patient`, request,{
+      withCredentials:true
+    });
   }
   deleteRating(rating) {
     return this.http.delete<any>(`${this.api}/delete-ratingandreview/${rating.ratingId}`,{
@@ -89,7 +111,7 @@ export class BookMyDocService {
   }
 
   deletePatient(patient) {
-    return this.http.delete<any>(`${this.api}/delete-patient/${patient.patientId}`,{
+    return this.http.delete<any>(`${this.api}/delete-patient/${patient.userId}`,{
       withCredentials:true
     });
   }
@@ -101,7 +123,7 @@ export class BookMyDocService {
   }
 
   deleteDoctor(doctor) {
-    return this.http.delete<any>(`${this.api}/delete-doctor/${doctor.doctorId}`,{
+    return this.http.delete<any>(`${this.api}/delete-doctor/${doctor.userId}`,{
       withCredentials:true
     });
   }

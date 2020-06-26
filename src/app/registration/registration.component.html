@@ -7,7 +7,7 @@
                 <img src="https://cdn.pixabay.com/photo/2016/04/15/18/05/computer-1331579_960_720.png" width="30%"
                     height="30%" alt="" class="float-right">
                 <div class="align-content-right">
-                    <h3 class="float-right"> Register As Patient</h3>
+                    <h3 class="float-right"> I'm Patient</h3>
                     <h4 class="float-right blockquote-footer">Find a doctor and book an appointment online for free!
                     </h4>
 
@@ -44,7 +44,7 @@
                         </div>
                     </div>
                     <div class=" container form-group mt-2 ">
-                        <label for="password">password</label>
+                        <label for="password">Password</label>
                         <input type="password" id="password" name="password" class="form-control my-select"
                             #password='ngModel' ngModel placeholder="Password"
                             pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
@@ -61,14 +61,6 @@
                             </div>
                         </div>
                     </div>
-                    <!-- <div class=" container form-group mt-2 ">
-                        <label for="gender">Gender</label>
-                        <select class="custom-select my-select form-control" id="gender" name="gender" #gender='ngModel'
-                            ngModel>
-                            <option>Male</option>
-                            <option>Female</option>
-                        </select>
-                    </div> -->
                     <input type="hidden" name="userType" #userType='ngModel' [(ngModel)]='this.userName'>
                     <button type="submit" class="btn btn-lg btn-block btn-info">Register As Patient!</button>
                     <button type="submit" class="btn btn-lg btn-block btn-primary" (click)='back1()'>go back</button>
@@ -117,7 +109,7 @@
                     </div>
                 </div>
                 <div class=" container form-group mt-2 ">
-                    <label for="password">password</label>
+                    <label for="password">Password</label>
                     <input type="password" id="password" name="password" class="form-control my-select"
                         #password='ngModel' ngModel placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
                         required>
@@ -134,14 +126,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- <div class=" container form-group mt-2 ">
-                        <label for="gender">Gender</label>
-                        <select class="custom-select my-select form-control" id="gender" name="gender" #gender='ngModel'
-                            ngModel>
-                            <option>Male</option>
-                            <option>Female</option>
-                        </select>
-                    </div> -->
                 <input type="hidden" name="userType" #userType='ngModel' [(ngModel)]='this.userName2'>
                 <button type="submit" class="btn btn-lg btn-block btn-info">Register As Doctor!</button>
                 <button type="submit" class="btn btn-lg btn-block btn-primary" (click)='back2()'>go back</button>
